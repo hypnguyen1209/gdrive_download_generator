@@ -1,159 +1,118 @@
-
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Google Drive Direct Download Link Generator</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
-	<link rel="shortcut icon" type="image/png" href="images/favicon.png" >
-	<!--[if lt IE 9]>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Google Drive Direct Download Link Generator</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+        <!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
-	</head>
-<body>
-<nav class="navbar navbar-default">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href=""><img width="140" height="34" src="4905/46772576711_b98de29be5_o.png" alt="Google Drive Direct Download Link Generator"></a>
-    </div>
+    </head>
+    <body>
+        <div class="content">
+            <div class="col-md-12">
+                <div class="head">
+                    <a href="" title="Google Drive Direct Download Link Generator">
+                        <img src="https://drive.gocmod.com/images/google%20drive.png" alt="Google Drive Direct Download Link Generator">
+                        <h1>
+                            GDRIVE DOWNLOADER <span>V1.0</span>
+                        </h1>
+                    </a>
+                </div>
+                <div class="clearfix"></div>
+                <div class="list-group content_get">
+                    <h2 class="list-group-item active">Google Drive Direct Download Link Generator</h2>
+                    <div class="list-group-item">
+                        <div>
+                            <b>Hướng dẫn</b>
+                            : Tiện ích này giúp các bạn Tạo link download trực tiếp từ link Goole Drive<br/>
+                            Ví dụ: <br/>
+                            Bạn nhập link này xuống dưới <a href="https://drive.google.com/file/d/1lHfsGfvN-7GPGEfNKzHb_F8lg4eLaGNH/view?usp=sharing" target="_blank" rel="nofollow">https://drive.google.com/file/d/1lHfsGfvN-7GPGEfNKzHb_F8lg4eLaGNH/view?usp=sharing</a>
+                            <br/>
+                            Sẽ tạo ra link: <a href="dl?id=1lHfsGfvN-7GPGEfNKzHb_F8lg4eLaGNH" rel="nofollow">1lHfsGfvN-7GPGEfNKzHb_F8lg4eLaGNH</a>
+                            (nhấn vào link này sẽ download trực tiếp)<br/>
+                        </div>
+                        <br/>
+                        <div class="form-group">
+                            <label for="link">Google Drive Link</label>
+                            <input type="text" class="form-control" id="link" onblur="FunctionURL()" placeholder="https://drive.google.com/file/d/XX-X__XXXXX-XXXXXXXXXXXXXXXX/view?usp=sharing">
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sx-12 col-sm-6 col-md-8">
+                                    <label for="dl" class="loa">
+                                        <div class="loading_content">
+                                            <div class="name_download">Direct Download Link</div>
+                                            <div class="loading_con"></div>
+                                        </div>
+                                    </label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="downloadlink" readonly>
+                                        <span class="input-group-btn">
+                                            <button id="copylinkbtn" class="btn btn-success" type="button" data-clipboard-target="#downloadlink" disabled>Copy</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <p id="alret_copy" class="p_text" hidden></p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script type="text/javascript">
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="https://gocmod.com/">Trang chủ</a></li>
-		<li class="active"><a href="">Drive.Gocmod.Com<span class="sr-only">(current)</span></a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <a href="https://m.facebook.com/ghostgmb0"><button class="btn btn-danger navbar-btn">Google Drive Unlimited</button></a>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-	<div class="content">
-		<div class="col-md-12">
-			<div class="head">
-				<a href="https://drive.gocmod.com" title="Google Drive Direct Download Link Generator">
-					<img src="https://drive.gocmod.com/images/google%20drive.png" alt="Google Drive Direct Download Link Generator">
-					<h1>GDRIVE DOWNLOADER <span>V1.0</span></h1>
-				</a>
-			</div>
-			<div class="clearfix"></div>
-			<div class="list-group content_get">
-				<h2 class="list-group-item active">Google Drive Direct Download Link Generator</h2>
-				<div class="list-group-item">
-					<div><b>Hướng dẫn</b>: Tiện ích này giúp các bạn Tạo link download trực tiếp từ link Goole Drive<br />
-					Ví dụ: <br />
-					Bạn nhập link này xuống dưới <a href="https://drive.google.com/file/d/1lHfsGfvN-7GPGEfNKzHb_F8lg4eLaGNH/view?usp=sharing" target="_blank" rel="nofollow">https://drive.google.com/file/d/1lHfsGfvN-7GPGEfNKzHb_F8lg4eLaGNH/view?usp=sharing</a><br />
-					Sẽ tạo ra link: <a href="dl?id=1lHfsGfvN-7GPGEfNKzHb_F8lg4eLaGNH" rel="nofollow">1lHfsGfvN-7GPGEfNKzHb_F8lg4eLaGNH</a> (nhấn vào link này sẽ download trực tiếp)<br />
-					
+                $(document).ready(function() {
 
-					</div>
-					<br />
-										<div class="form-group">
-					    <label for="link">Google Drive Link</label>
-					    <input type="text" class="form-control" id="link" onblur="FunctionURL()" placeholder="https://drive.google.com/file/d/XX-X__XXXXX-XXXXXXXXXXXXXXXX/view?usp=sharing">
-					</div>
-					
-					<div class="form-group">
-					 	<div class="row">
-						    <div class="col-sx-12 col-sm-6 col-md-8">
-						    	<label for="dl" class="loa">
-							    	<div class="loading_content">
-								    	<div class="name_download">Direct Download Link</div>
-								    	<div class="loading_con">
-								    		
-								    	</div>
-									</div>
-								</label>
-						    	<div class="input-group">
-						            <input type="text" class="form-control" id="downloadlink" readonly>
-						            <span class="input-group-btn">
-								        <button id="copylinkbtn" class="btn btn-success" type="button"  data-clipboard-target="#downloadlink" disabled>Copy</button>
-								    </span>
-						        </div>
-						       
-						    </div>
+                    $('#copylinkbtn').click(function() {
+                        var copyText = document.getElementById("downloadlink");
+                        copyText.select();
+                        document.execCommand("copy");
+                        $('p#alret_copy').removeAttr('hidden');
+                        $('p#alret_copy').text("Đã Copy link " + copyText.value);
 
-						    </div>
-						     <div class="clearfix"></div>
-						    <p id="alret_copy" class="p_text" hidden></p>
-						</div>
-					    <div class="clearfix"></div>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-			</div>
-			<div class="clearfix"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-<div class="footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 footerf">
-        Copyright 2019 © <a href="https://Drive.gocmod.com/"><strong>Drive.GocmodCom</strong></a> | <a href="https://Drive.gocmod.com"><strong>Google Drive Unlimited</strong></a></div>
-      </div>
-    </div>
-  </div>
-</div>	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-		
+                        setTimeout(function() {
+                            $('p#alret_copy').attr('hidden', 'hidden');
+                        }, 3000);
+                    })
 
-		$(document).ready(function(){
+                    $('#compact').click(function() {
+                        var copyText = document.getElementById("compactlink");
+                        copyText.select();
+                        document.execCommand("copy");
+                        $('p#alret_copy').removeAttr('hidden');
+                        $('p#alret_copy').text("Đã Copy link " + copyText.value);
 
-			$('#copylinkbtn').click(function(){
-				var copyText = document.getElementById("downloadlink");
-			 	copyText.select();
-			  	document.execCommand("copy");
-			  	$('p#alret_copy').removeAttr('hidden');
-				$('p#alret_copy').text("Đã Copy link " + copyText.value);
+                        setTimeout(function() {
+                            $('p#alret_copy').attr('hidden', 'hidden');
+                        }, 3000);
+                    })
 
-				setTimeout(function() { 
-			        $('p#alret_copy').attr('hidden', 'hidden');
-			    }, 3000);
-			})
+                    var url_defaule = 'http://localhost/gg/dl?id=';
+                    $("#link").keyup(function() {
+                        var link = $('#link').val();
+                        let li = link.replace(/\/file\/d\/(.+)\/(.+)/, "$1");
+                        var content_url = li.replace('https://drive.google.com', url_defaule);
 
-			$('#compact').click(function(){
-				var copyText = document.getElementById("compactlink");
-			 	copyText.select();
-			  	document.execCommand("copy");
-			  	$('p#alret_copy').removeAttr('hidden');
-				$('p#alret_copy').text("Đã Copy link " + copyText.value);
-
-				setTimeout(function() { 
-			        $('p#alret_copy').attr('hidden', 'hidden');
-			    }, 3000);
-			})
-			
-			var url_defaule = 'http://localhost/dl?id=';
-			 $("#link").keyup(function(){
-		        var link = $('#link').val();
-		        let li = link.replace(/\/file\/d\/(.+)\/(.+)/, "$1");
-		        var content_url = li.replace('https://drive.google.com', url_defaule);
-		       	
-		       	if(content_url !== link) {
-		       		$('#downloadlink').val(content_url);
-			        $('#copylinkbtn').removeAttr('disabled');
-				}else{
-					$('#downloadlink').val('');
-			        $('#copylinkbtn').attr('disabled', 'disabled');
-			    }
-		    });
-		});
-	</script>
-	</body>
+                        if (content_url !== link) {
+                            $('#downloadlink').val(content_url);
+                            $('#copylinkbtn').removeAttr('disabled');
+                        } else {
+                            $('#downloadlink').val('');
+                            $('#copylinkbtn').attr('disabled', 'disabled');
+                        }
+                    });
+                });
+            </script>
+    </body>
 </html>
